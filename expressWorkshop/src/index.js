@@ -11,5 +11,4 @@ app.use(`/static`, express.static(path.join(__dirname, '../static')))
 configHbs(app)
 app.use(rout)
 
-
 app.listen(3000)
