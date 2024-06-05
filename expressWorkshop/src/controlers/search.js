@@ -9,6 +9,7 @@ module.exports = {
         let data = await getAllMovies()
         if (title) {
             data = data.filter(i => i.title.toLowerCase().includes(title.toLocaleLowerCase()))
+            console.log(data.id)
         }
         if (genre) {
             data = data.filter(i => i.genre.toLowerCase().includes(genre.toLocaleLowerCase()))

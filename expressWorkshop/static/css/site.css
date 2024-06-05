@@ -33,7 +33,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-
+    
 }
 
 nav,
@@ -127,17 +127,17 @@ footer {
     z-index: 11111;
     top: 13%;
     text-align: center;
-    border: 3px solid black;
     border-radius: 0.5rem;
     color: rgb(255, 255, 255);
     font-style: italic;
     font-weight: bold;
     height: auto;
     width: 300px;
+    padding: 1em;
 }
 
 .error-container>p {
-    background: #ff0000;
+    background: #22333B;
     font-size: 18px;
     padding: 10px;
     height: auto;
