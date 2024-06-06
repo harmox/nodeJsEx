@@ -4,13 +4,11 @@ module.exports = {
     castAtach: async (req, res) => {
         const movie = await Movie.findById(req.params.id).lean()
         const casts = await Cast.find().lean()
-        res.render(`cast-attach`, {movie, casts })
+        res.render(`cast-attach`, { movie, casts })
     },
     castAtachNew: async (req, res) => {
         const castId = req.body.cast
-        const movie = await Movie.findById(req.params.id)
-        movie.casts.push(castId)
-        await movie.save()
+        await Movie.findByIdAndUpdate(req.params.id, { $push: { casts: castId } })
         res.redirect(`/`)
     }
 
