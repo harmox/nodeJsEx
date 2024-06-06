@@ -6,7 +6,7 @@ module.exports = {
         let urlToParse = url.parse(req.url, true).query
         let { title, genre, year } = urlToParse
         console.log(title)
-        let data = await getAllMovies()
+        let data = await getAllMovies().lean()
         if (title) {
             data = data.filter(i => i.title.toLowerCase().includes(title.toLocaleLowerCase()))
             console.log(data.id)

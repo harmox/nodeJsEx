@@ -31,9 +31,39 @@ const movieSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
-    }
+    },
+    casts: [{
+        type: mongoose.Types.ObjectId, ref: `Casts`
+    }]
 })
+const castSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    age: {
+        type: Number,
+        max: 100,
+        min: 7,
+        required: true
+    },
+    born: {
+        type: String,
+        required: true
+    },
+    nameInMovie: {
+        type: String,
+        required: true
+    },
+    castImage: {
+        type: String,
+        required: true
+    },
+})
+
+const Cast = mongoose.model(`Casts`, castSchema)
 const Movie = mongoose.model(`Movies`, movieSchema)
 module.exports = {
-    Movie
+    Movie,
+    Cast
 }
