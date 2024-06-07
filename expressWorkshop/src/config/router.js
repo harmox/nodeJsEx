@@ -7,6 +7,7 @@ const { createPage, createNewPost, createCast, createNewCast } = require("../con
 const { aboutFunc } = require("../controlers/about.js")
 const { searchPage } = require("../controlers/search.js")
 const { castAtach, castAtachNew } = require("../controlers/castAtach.js")
+const { logInRender, registerRender } = require("../controlers/acountsManage.js")
 
 const rout = Router()
 
@@ -20,6 +21,8 @@ rout.get(`/castCreate`, createCast)
 rout.post(`/castCreate`, createNewCast)
 rout.get(`/castAtach/:id`, castAtach)
 rout.post(`/castAtach/:id`, castAtachNew)
+rout.get(`/login`, logInRender)
+rout.get(`/register`, registerRender)
 
 rout.get(`*`, renderError)
 
