@@ -1,0 +1,12 @@
+<section id="catalog">
+    {{#if error}}<div class="error-container">
+        <p>{{error}}</p>
+    </div>{{/if}}
+    <h1>{{movie.title}} by {{movie.director}}</h1>
+    <div class="card_right">
+        <img src="{{movie.imageURL}}" alt="image">
+    </div>
+    <form method="post">
+        <button id="edit-button">Confirm delete</button>
+    </form>
+</section>

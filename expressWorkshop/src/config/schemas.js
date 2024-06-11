@@ -34,7 +34,8 @@ const movieSchema = new mongoose.Schema({
     },
     casts: [{
         type: mongoose.Types.ObjectId, ref: `Casts`
-    }]
+    }],
+    authorId: { type: mongoose.Types.ObjectId, ref: `Accaunt` }
 })
 const castSchema = new mongoose.Schema({
     name: {
@@ -60,10 +61,21 @@ const castSchema = new mongoose.Schema({
         required: true
     },
 })
-
+const userSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+})
+const Accaunt = mongoose.model(`Accaunts`, userSchema)
 const Cast = mongoose.model(`Casts`, castSchema)
 const Movie = mongoose.model(`Movies`, movieSchema)
 module.exports = {
     Movie,
-    Cast
+    Cast,
+    Accaunt
 }

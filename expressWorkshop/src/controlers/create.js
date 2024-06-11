@@ -5,15 +5,23 @@ module.exports = {
         res.render(`create`)
     },
     createNewPost: async (req, res) => {
-        await Movie.create(req.body)
-        res.redirect(`/`)
+        const movieData = {
+            ...req.body,
+            authorId: req.user._id
+        };
+        try {
+            await Movie.create(movieData)
+            res.redirect(`/`)
+        } catch (err) {
+            res.render(`404`)
+        }
     },
     createCast: async (req, res) => {
         res.render(`cast-create`)
     },
     createNewCast: async (req, res) => {
         await Cast.create(req.body)
-        console.log(`Works`)
+        console.log(`Works`);
         res.render(`cast-create`)
     }
 }

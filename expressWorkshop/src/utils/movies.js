@@ -4,8 +4,6 @@ function getAllMovies() {
     return Movie.find()
 }
 
-
-
 module.exports = {
     getAllMovies,
 }

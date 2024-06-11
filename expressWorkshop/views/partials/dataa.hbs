@@ -7,7 +7,8 @@
         <h2>Genre: {{genre}}</h2>
         <p>Description: {{description}}</p>
         <a href="/details/{{_id}}" class="details">Details</a>
+        {{#if author}}
         <a href="/castAtach/{{_id}}" class="details">Cast Atach</a>
-
+        {{/if}}
     </div>
 </div>
