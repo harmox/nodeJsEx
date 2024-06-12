@@ -1,19 +1,23 @@
-
-            <!-- Create Page (Only for logged-in users) -->
-            <section id="create">
-                <div class="form">
-                    <h2>Add Stone</h2>
-                    <form class="create-form" method="" action="#">
-                        <input type="text" name="" id="name" placeholder="Name" />
-                        <input type="text" name="" id="category" placeholder="Category" />
-                        <input type="text" name="" id="color" placeholder="Color" />
-                        <input type="text" name="" id="stone-img" placeholder="Image" />
-                        <input type="text" name="" id="location" placeholder="Location" />
-                        <input type="text" name="" id="formula" placeholder="Formula" />
-                        <textarea id="description" placeholder="Description..." name=""></textarea>
-
-                        <button type="submit">Create</button>
-                    </form>
-                </div>
-            </section>
-       
+<!-- Create Page (Only for logged-in users) -->
+<section id="create">
+    {{#if error}}
+    <div class="errorContainer">
+        {{#each error}}
+        <p> {{this}} </p>
+        {{/each}}
+    </div>
+    {{/if}}
+    <div class="form">
+        <h2>Add Stone</h2>
+        <form class="create-form" method="post">
+            <input type="text" name="name" id="name" placeholder="Name" {{#if values.name}}value="{{values.name}}" {{/if}} />
+            <input type="text" name="category" id="category" placeholder="Category" {{#if values.category}}value="{{values.category}}" {{/if}} />
+            <input type="text" name="color" id="color" placeholder="Color"{{#if values.color}}value="{{values.color}}" {{/if}} />
+            <input type="text" name="image" id="stone-img" placeholder="Image" {{#if values.image}}value="{{values.image}}" {{/if}}/>
+            <input type="text" name="location" id="location" placeholder="Location" {{#if values.location}}value="{{values.location}}" {{/if}}/>
+            <input type="text" name="formula" id="formula" placeholder="Formula" {{#if values.formula}}value="{{values.formula}}" {{/if}}/>
+            <textarea id="description" placeholder="Description..." name="description"  >{{#if values.description}}{{values.description}}{{/if}} </textarea>
+            <button type="submit">Create</button>
+        </form>
+    </div>
+</section>

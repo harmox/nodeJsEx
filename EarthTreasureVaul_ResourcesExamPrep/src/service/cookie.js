@@ -1,10 +1,9 @@
 const jwt = require(`jsonwebtoken`)
-
-const secret = `secret`
+const secret = `hope i pass`
 
 function createToken(user) {
     const payload = {
-        _id: user._id,
+        id: user._id,
         email: user.email
     }
     const token = jwt.sign(payload, secret, { expiresIn: `2d` })
@@ -16,11 +15,10 @@ function verifyToken(token) {
 }
 function session() {
     return function (req, res, next) {
-        const token = req.cookies.token;
+        const token = req.cookies.token
         if (token) {
             try {
-                const payload = verifyToken(token)
-                req.user = payload
+                req.user = verifyToken(token)
             } catch (err) {
                 res.clearCookie(`token`)
             }
@@ -28,6 +26,8 @@ function session() {
         next()
     }
 }
+
+
 module.exports = {
     createToken, session
 }

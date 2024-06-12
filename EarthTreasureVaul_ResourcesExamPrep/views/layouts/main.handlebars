@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./static/styles/styles.css" />
-    <title>Home Page</title>
+    <title>{{title}}</title>
 </head>
 
 <body>
@@ -28,16 +28,18 @@
                 </div>
 
                 <!-- Logged-in users -->
+                {{#if user}}
                 <div class="user">
                     <a href="/create">Add Stones</a>
                     <a href="/logout">Logout</a>
                 </div>
-
+                {{else}}
                 <!-- Guest users -->
                 <div class="guest">
                     <a href="/login">Login</a>
                     <a href="/register">Register</a>
                 </div>
+                {{/if}}
             </nav>
         </header>
 
