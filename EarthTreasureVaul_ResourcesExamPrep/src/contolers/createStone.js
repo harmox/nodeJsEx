@@ -10,7 +10,6 @@ async function createStonePost(req, res) {
         const movieD = {
             ...req.body,
             owner: req.user.id
-
         }
         await stones.create(movieD)
         res.redirect(`/`)

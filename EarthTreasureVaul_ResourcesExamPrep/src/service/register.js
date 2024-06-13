@@ -18,7 +18,7 @@ async function registerPost(req, res) {
         const user = await Accaunt.create({ email, password })
         const token = createToken(user)
         res.cookie(`token`, token, { httpOnly: true })
-        res.redirect(`/home`)
+        res.redirect(`/`)
     } catch (err) {
         console.log(err)
         res.render(`register`, { email, error: err.message })

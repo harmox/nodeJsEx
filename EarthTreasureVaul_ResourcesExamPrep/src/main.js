@@ -14,11 +14,12 @@ start();
 async function start() {
   await mongoose.connect(`mongodb://localhost:27017/earthTreasure`);
 
-  app.use(`/static`, express.static(path.join(__dirname, `../static`)));
+  app.set('views', path.join(__dirname, '../views'));
   app.use(express.urlencoded({ extended: true }));
-  handlebars(app);
+  app.use(`/static`, express.static(path.join(__dirname, `../static`)));
   app.use(cookieParser(secret));
   app.use(session());
+  handlebars(app);
   app.use(router);
 
   app.listen(PORT, () => console.log(`serven listen on ${PORT}`));
