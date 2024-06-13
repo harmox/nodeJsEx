@@ -1,5 +1,5 @@
 function logout(req, res) {
-    res.clearCookie(`token`)
-    res.redirect(`/`)
+  res.clearCookie(`token`);
+  res.redirect(`/`);
 }
-module.exports = { logout }
+module.exports = { logout };

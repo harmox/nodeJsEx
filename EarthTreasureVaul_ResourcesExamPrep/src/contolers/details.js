@@ -4,7 +4,6 @@ async function detailsGet(req, res) {
     try {
         const stone = await stones.findById(req.params.id).lean()
         const isCreator = stone.owner == req.user.id
-        console.log(isCreator)
         res.render(`details`, { stone, isCreator })
     } catch (err) {
         res.redirect(`/`)

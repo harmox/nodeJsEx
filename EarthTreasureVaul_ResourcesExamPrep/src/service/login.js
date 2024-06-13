@@ -13,7 +13,7 @@ async function logInPost(req, res) {
         const exist = await Accaunt.findOne({ email })
         if (!exist) { throw new Error(`No existing email`) }
         const token = createToken(exist);
-
+        
         const match = await comparePassword(exist, password)
         if (!match) { throw new Error(`Wrong password`) }
         res.cookie(`token`, token, { httpOnly: true })

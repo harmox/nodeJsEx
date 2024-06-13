@@ -8,6 +8,7 @@ const { createStoneGet, createStonePost } = require("../contolers/createStone.js
 const { home } = require("../contolers/home.js")
 const { dashboardGet } = require("../contolers/dashboard.js")
 const { detailsGet } = require("../contolers/details.js")
+const { searchPost, searchGet } = require("../contolers/seatch.js")
 
 const router = express.Router()
 
@@ -24,7 +25,8 @@ router.get(`/login`, isGuest(), logInGet)
 router.post(`/login`, isGuest(), logInPost)
 router.get(`/logout`, logout)
 
-router.get(`/search`, isUser(), (req, res) => { res.render(`search`) })
+router.get(`/search`, isUser(),searchGet)
+router.post(`/search`, isUser(),searchPost)
 
 router.get(`*`, (req, res) => { res.render(`404`) })
 module.exports = { router }
