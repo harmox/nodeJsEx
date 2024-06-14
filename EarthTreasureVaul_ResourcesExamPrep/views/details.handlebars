@@ -1,4 +1,8 @@
 <section id="details">
+    {{#if error}}
+    <div class="errorContainer">
+        <p> {{error}} </p>
+    </div>{{/if}}
     <div id="details-wrapper">
         <p id="details-title">Name: {{stone.name}}</p>
         <div id="img-wrapper">
@@ -34,9 +38,12 @@
             <a href="/edit/{{stone._id}}" id="edit-btn">Edit</a>
             <a href="/delete/{{stone._id}}" id="delete-btn">Delete</a>
             {{else}}
-            <a href="/" id="like-btn">Like</a>
-            {{/if}}
+            {{#if liked}}
+            <a href="/like/{{stone._id}}" id="like-btn">Like</a>
+            {{else}}
             <p id="already-liked">You already liked this stone!</p>
+            {{/if}}
+            {{/if}}
         </div>
     </div>
 </section>

@@ -14,7 +14,7 @@ start();
 async function start() {
   await mongoose.connect(`mongodb://localhost:27017/earthTreasure`);
 
-  app.set('views', path.join(__dirname, '../views'));
+  
   app.use(express.urlencoded({ extended: true }));
   app.use(`/static`, express.static(path.join(__dirname, `../static`)));
   app.use(cookieParser(secret));
