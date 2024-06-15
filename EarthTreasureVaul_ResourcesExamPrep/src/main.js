@@ -1,7 +1,6 @@
 const express = require(`express`);
 const mongoose = require(`mongoose`);
 const app = express();
-const path = require(`path`);
 
 const cookieParser = require(`cookie-parser`);
 const { handlebars } = require("./config/handlebars.js");
@@ -16,11 +15,11 @@ async function start() {
 
   
   app.use(express.urlencoded({ extended: true }));
-  app.use(`/static`, express.static(path.join(__dirname, `../static`)));
+  app.use(`/static`, express.static(`static`));
   app.use(cookieParser(secret));
   app.use(session());
-  handlebars(app);
   app.use(router);
+  handlebars(app);
 
   app.listen(PORT, () => console.log(`serven listen on ${PORT}`));
 }
