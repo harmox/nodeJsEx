@@ -22,6 +22,7 @@ function session() {
                 res.clearCookie(`token`)
             }
         }
+        res.locals.user = req.user || null
         next()
     }
 }
