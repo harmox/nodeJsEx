@@ -9,7 +9,7 @@ const modelSchema = new mongoose.Schema({
     description: { type: String, required: true },
     votes: [{
         type: mongoose.Schema.Types.ObjectId,
-        re: `User`,
+        ref: `User`,
         default: []
     }],
     owner: { type: mongoose.Schema.Types.ObjectId, ref: `User`, required: true },

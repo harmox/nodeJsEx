@@ -21,7 +21,7 @@ async function registerPost(req, res) {
     try {
         //TODO requirments
         if (validation.errors.length) { throw validation.errors }
-        const exist = await userAcc.find({ email })
+        const exist = await userAcc.findOne({ email })
         if (exist) { throw new Error(`Email already taken`) }
         const user = await userAcc.create({ firstName, lastName, email, password: await bcrypt.hash(password, 10) })
         const token = createToken(user)
