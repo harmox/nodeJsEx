@@ -10,8 +10,7 @@ const PORT = 3000
 const secret = `superSECRET`
 start()
 async function start() {
-    await mongoose.connect(`mongodb://localhost:27017/`)
-    //TODO add name to the database
+    await mongoose.connect(`mongodb://localhost:27017/friendlyWorld`)
 
     app.use(express.urlencoded({ extended: true }));
     handlebarsConfig(app)

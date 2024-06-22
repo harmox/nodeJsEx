@@ -1,18 +1,15 @@
 const bcrypt = require(`bcrypt`)
-const { body, validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 
-const { userAcc } = require("../../models/users.js")
+const { userAcc } = require("../models/users.js")
 const { createToken } = require("./token.js");
-const { parseError } = require('../../utils.js');
+const { parseError } = require('../utils.js');
 
 
 function loginGet(req, res) {
     res.render(`login`)
 }
-const loginValidation = [
-    body('email').isEmail().withMessage('Please enter a valid email'),
-    body('password').notEmpty().withMessage('Password is required')
-];
+
 async function loginPost(req, res) {
     //TODO check if email or username
     const { email, password } = req.body
@@ -31,4 +28,4 @@ async function loginPost(req, res) {
         res.render(`login`, { email, error: parseError(err).errors })
     }
 }
-module.exports = { loginGet, loginPost, loginValidation }
+module.exports = { loginGet, loginPost }

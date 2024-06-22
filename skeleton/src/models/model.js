@@ -1,6 +1,6 @@
 const mongoose = require(`mongoose`)
 //TODO check name add more props and export
-const modelSchema = mongoose.SchemaType({
+const modelSchema = ({
     name: {
         type: String,
         require: true
