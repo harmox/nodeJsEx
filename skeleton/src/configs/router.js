@@ -14,7 +14,7 @@ const router = Router()
 
 router.get(`/`, homeGet)
 router.get(`/create`, isGuest(), createGet)
-router.post(`/create`, isGuest, createEditValidation, createPost)
+router.post(`/create`, isGuest(), createEditValidation, createPost)
 
 router.get(`/login`, isUser(), loginGet)
 router.post(`/login`, isUser(), loginValidation, loginPost)

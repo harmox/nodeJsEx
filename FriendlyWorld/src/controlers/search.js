@@ -17,4 +17,4 @@ async function searchGet(req, res) {
     }
 }
 
-module.exports = { searchGet,  }
+module.exports = { searchGet, }
